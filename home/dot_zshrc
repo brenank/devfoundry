@@ -1,0 +1,9 @@
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+if [[ -r "${DEVFOUNDRY_SYSTEM_HOME:-/etc/devfoundry}/zsh/load-rc.zsh" ]]; then
+  source "${DEVFOUNDRY_SYSTEM_HOME:-/etc/devfoundry}/zsh/load-rc.zsh"
+elif [[ -r "${DEVFOUNDRY_USER_SHARE_HOME:-${XDG_DATA_HOME:-$HOME/.local/share}/devfoundry}/zsh/load-rc.zsh" ]]; then
+  source "${DEVFOUNDRY_USER_SHARE_HOME:-${XDG_DATA_HOME:-$HOME/.local/share}/devfoundry}/zsh/load-rc.zsh"
+fi

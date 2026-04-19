@@ -1,0 +1,11 @@
+# Personal Git overrides loaded last.
+# Put identity and any per-user aliases here.
+
+[user]
+    name = Your Name
+    email = you@example.com
+    login = yourlogin
+
+[alias]
+    lg = log --graph --oneline --decorate --all
+

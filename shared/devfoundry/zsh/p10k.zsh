@@ -1,0 +1,41 @@
+# Managed by devfoundry shared defaults.
+
+typeset -g POWERLEVEL9K_MODE='nerdfont-complete'
+typeset -g POWERLEVEL9K_DISABLE_HOT_RELOAD=true
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+
+typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
+  os_icon
+  dir
+  vcs
+  newline
+  prompt_char
+)
+
+typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
+  status
+  command_execution_time
+  background_jobs
+  time
+)
+
+typeset -g POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=''
+typeset -g POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX='❯ '
+
+typeset -g POWERLEVEL9K_OS_ICON_FOREGROUND=39
+typeset -g POWERLEVEL9K_DIR_FOREGROUND=111
+typeset -g POWERLEVEL9K_DIR_SHORTEN_STRATEGY='truncate_to_last'
+typeset -g POWERLEVEL9K_DIR_MAX_LENGTH=3
+
+typeset -g POWERLEVEL9K_VCS_CLEAN_FOREGROUND=76
+typeset -g POWERLEVEL9K_VCS_MODIFIED_FOREGROUND=178
+
+typeset -g POWERLEVEL9K_STATUS_OK=false
+typeset -g POWERLEVEL9K_STATUS_ERROR_FOREGROUND=160
+
+typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=3
+typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_PRECISION=0
+
+typeset -g POWERLEVEL9K_TIME_FORMAT='%D{%H:%M}'
+

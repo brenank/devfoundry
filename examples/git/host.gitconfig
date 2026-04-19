@@ -1,0 +1,6 @@
+# Machine-specific Git overrides.
+# This file is not managed by chezmoi after it is copied into your home directory.
+# Add only machine-specific overrides here.
+# Example:
+# [core]
+#     editor = nvim

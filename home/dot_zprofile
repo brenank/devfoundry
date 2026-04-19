@@ -1,0 +1,5 @@
+if [[ -r "${DEVFOUNDRY_SYSTEM_HOME}/zsh/load-profile.zsh" ]]; then
+  source "${DEVFOUNDRY_SYSTEM_HOME}/zsh/load-profile.zsh"
+elif [[ -r "${DEVFOUNDRY_USER_SHARE_HOME}/zsh/load-profile.zsh" ]]; then
+  source "${DEVFOUNDRY_USER_SHARE_HOME}/zsh/load-profile.zsh"
+fi
