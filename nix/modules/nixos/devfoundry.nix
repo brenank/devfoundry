@@ -18,7 +18,26 @@ in
     ];
 
     programs.zsh.enable = true;
+    programs.zsh.enableCompletion = false;
+    programs.zsh.promptInit = "";
     users.defaultUserShell = pkgs.zsh;
+
+    programs.zsh.shellInit = ''
+      export XDG_CONFIG_HOME="''${XDG_CONFIG_HOME:-$HOME/.config}"
+      export XDG_CACHE_HOME="''${XDG_CACHE_HOME:-$HOME/.cache}"
+      export XDG_DATA_HOME="''${XDG_DATA_HOME:-$HOME/.local/share}"
+      export XDG_STATE_HOME="''${XDG_STATE_HOME:-$HOME/.local/state}"
+
+      export DEVFOUNDRY_SYSTEM_HOME="''${DEVFOUNDRY_SYSTEM_HOME:-/etc/devfoundry}"
+      export DEVFOUNDRY_USER_CONFIG_HOME="''${DEVFOUNDRY_USER_CONFIG_HOME:-''${XDG_CONFIG_HOME}/devfoundry}"
+      export DEVFOUNDRY_USER_SHARE_HOME="''${DEVFOUNDRY_USER_SHARE_HOME:-''${XDG_DATA_HOME}/devfoundry}"
+      export DEVFOUNDRY_SYSTEM_PLUGIN_HOME="''${DEVFOUNDRY_SYSTEM_PLUGIN_HOME:-''${DEVFOUNDRY_SYSTEM_HOME}/plugins}"
+      export DEVFOUNDRY_USER_PLUGIN_HOME="''${DEVFOUNDRY_USER_PLUGIN_HOME:-''${DEVFOUNDRY_USER_SHARE_HOME}/plugins}"
+
+      export DEVFOUNDRY_HOME="''${DEVFOUNDRY_USER_SHARE_HOME}"
+      export DEVFOUNDRY_DATA_HOME="''${DEVFOUNDRY_USER_SHARE_HOME}"
+      export DEVFOUNDRY_PLUGIN_HOME="''${DEVFOUNDRY_USER_PLUGIN_HOME}"
+    '';
 
     environment.etc."devfoundry".source = sharedRoot;
 
