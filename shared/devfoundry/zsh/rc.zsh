@@ -38,7 +38,11 @@ elif [[ -r "${DEVFOUNDRY_USER_SHARE_HOME}/zsh/aliases.zsh" ]]; then
   source "${DEVFOUNDRY_USER_SHARE_HOME}/zsh/aliases.zsh"
 fi
 
-if [[ -n "${DEVFOUNDRY_POWERLEVEL10K_THEME:-}" && -r "${DEVFOUNDRY_POWERLEVEL10K_THEME}" ]]; then
+if [[ "${TERM:-}" == "linux" ]]; then
+  # The Linux virtual console cannot render the Nerd Font glyphs expected by p10k.
+  PROMPT='%F{cyan}%n@%m%f:%F{blue}%~%f %# '
+  RPROMPT=
+elif [[ -n "${DEVFOUNDRY_POWERLEVEL10K_THEME:-}" && -r "${DEVFOUNDRY_POWERLEVEL10K_THEME}" ]]; then
   source "${DEVFOUNDRY_POWERLEVEL10K_THEME}"
 elif [[ -r "${DEVFOUNDRY_USER_PLUGIN_HOME}/powerlevel10k/powerlevel10k.zsh-theme" ]]; then
   source "${DEVFOUNDRY_USER_PLUGIN_HOME}/powerlevel10k/powerlevel10k.zsh-theme"
@@ -54,12 +58,14 @@ elif [[ -r "${DEVFOUNDRY_SYSTEM_PLUGIN_HOME}/zsh-autosuggestions/zsh-autosuggest
   source "${DEVFOUNDRY_SYSTEM_PLUGIN_HOME}/zsh-autosuggestions/zsh-autosuggestions.zsh"
 fi
 
-if [[ -r "$HOME/.p10k.zsh" ]]; then
-  source "$HOME/.p10k.zsh"
-elif [[ -r "${DEVFOUNDRY_USER_SHARE_HOME}/zsh/p10k.zsh" ]]; then
-  source "${DEVFOUNDRY_USER_SHARE_HOME}/zsh/p10k.zsh"
-elif [[ -r "${DEVFOUNDRY_SYSTEM_HOME}/zsh/p10k.zsh" ]]; then
-  source "${DEVFOUNDRY_SYSTEM_HOME}/zsh/p10k.zsh"
+if [[ "${TERM:-}" != "linux" ]]; then
+  if [[ -r "$HOME/.p10k.zsh" ]]; then
+    source "$HOME/.p10k.zsh"
+  elif [[ -r "${DEVFOUNDRY_USER_SHARE_HOME}/zsh/p10k.zsh" ]]; then
+    source "${DEVFOUNDRY_USER_SHARE_HOME}/zsh/p10k.zsh"
+  elif [[ -r "${DEVFOUNDRY_SYSTEM_HOME}/zsh/p10k.zsh" ]]; then
+    source "${DEVFOUNDRY_SYSTEM_HOME}/zsh/p10k.zsh"
+  fi
 fi
 
 if [[ -n "${DEVFOUNDRY_ZSH_SYNTAX_HIGHLIGHTING:-}" && -r "${DEVFOUNDRY_ZSH_SYNTAX_HIGHLIGHTING}" ]]; then
