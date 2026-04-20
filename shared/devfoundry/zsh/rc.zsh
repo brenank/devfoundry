@@ -75,3 +75,8 @@ elif [[ -r "${DEVFOUNDRY_USER_PLUGIN_HOME}/zsh-syntax-highlighting/zsh-syntax-hi
 elif [[ -r "${DEVFOUNDRY_SYSTEM_PLUGIN_HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]]; then
   source "${DEVFOUNDRY_SYSTEM_PLUGIN_HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 fi
+
+# Zsh chooses the initial ZLE keymap from EDITOR/VISUAL. Since `nvim` contains
+# `vi`, shells can silently start with vi insert bindings unless we select the
+# desired editing mode explicitly.
+bindkey -e
