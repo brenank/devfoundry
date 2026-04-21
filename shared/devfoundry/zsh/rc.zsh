@@ -5,8 +5,9 @@ setopt hist_ignore_space
 setopt share_history
 setopt prompt_subst
 
-if [[ -d "${XDG_STATE_HOME:-$HOME/.local/state}" ]]; then
-  HISTFILE="${XDG_STATE_HOME:-$HOME/.local/state}/zsh/history"
+history_dir="${XDG_STATE_HOME:-$HOME/.local/state}/zsh"
+if mkdir -p "${history_dir}" 2>/dev/null; then
+  HISTFILE="${history_dir}/history"
 else
   HISTFILE="$HOME/.zsh_history"
 fi
