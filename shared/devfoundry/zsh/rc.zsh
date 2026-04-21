@@ -81,3 +81,9 @@ fi
 # `vi`, shells can silently start with vi insert bindings unless we select the
 # desired editing mode explicitly.
 bindkey -e
+
+# Make sure the terminal's Delete and Backspace keys do the expected thing in
+# the active emacs keymap, even when the terminal sends different sequences.
+bindkey '^[[3~' delete-char
+bindkey '^?' backward-delete-char
+bindkey '^H' backward-delete-char
